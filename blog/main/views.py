@@ -18,20 +18,23 @@ def index(request):
     categories = Category.objects.all()
     _f = ''
     quote = Quote.objects.latest()
+    featured = Post.objects.filter(featured=True) \
+    .order_by('-time_stamp')[:4]
 
-    # get latest six posts to populate index page.
+    # get latest three posts to populate index page.
     try:
-        _f = Post.objects.all()[:6]
+        _f = Post.objects.all()[:3]
     except Exception as e:
-        messages.warning(request, 'articles not up to 6' +
+        messages.warning(request, 'articles not up to 3' +
                          e, fail_silently=True)
 
     context = {
         'latest_post': latest,
         'next_post': next_post,
         'categories': categories,
-        'topics_index': _f,
-        'quote': quote
+        'latest_3': _f,
+        'quote': quote,
+        'featured' : featured
     }
     return render(request, 'main/index.html', context)
 

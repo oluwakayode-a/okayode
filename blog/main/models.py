@@ -25,12 +25,13 @@ class Post(models.Model):
     title = models.CharField(max_length=500)
     author = models.CharField(max_length=200, null=True, blank=True)
     body = RichTextField()
-    snippet = models.CharField(max_length=200, null=True)
+    snippet = models.CharField(max_length=200, null=True, blank=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True)
     slug = models.SlugField(null=True)
     time_stamp = models.DateTimeField(auto_now_add=True)
     tags = TaggableManager(blank=True)
     image = models.ImageField(upload_to='images/', blank=True, null=True)
+    featured = models.BooleanField(default=False)
 
     class Meta:
         verbose_name_plural = 'Posts'
@@ -47,12 +48,12 @@ class Post(models.Model):
         return self.title
 
     @property
-    def is_featured(self):
-        return True if self.author else False
-    
-    @property
     def get_comment_count(self):
         return self.comment_set.objects.all().count()
+    
+    @property
+    def get_view_count(self):
+        return self.view_set.objects.all().count()
 
 
 class Comment(models.Model):
