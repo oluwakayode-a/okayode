@@ -5,22 +5,28 @@ from .models import Comment
 class CommentForm(forms.Form):
     name = forms.CharField(required=True, widget=forms.TextInput(
         attrs={
-            'class': 'comment_input comment_input_name',
-            'placeholder': 'Your Name'
+            'class' : 'common-input mb-20 form-control',
+            'placeholder': 'Your Name',
+            'onblur' : 'this.placeholder',
+            'onfocus' : 'this.placeholder'
         }
     ))
 
     email = forms.EmailField(required=False, widget=forms.EmailInput(
         attrs={
-            'class': 'comment_input comment_input_email',
-            'placeholder': 'Your Email'
+            'class' : 'common-input mb-20 form-control',
+            'placeholder': 'Your Email',
+            'onblur' : 'this.placeholder',
+            'onfocus' : 'this.placeholder'
         }
     ))
 
     text = forms.CharField(required=True, widget=forms.Textarea(
         attrs={
-            'class': 'comment_text',
-            'placeholder': 'Type Comment...'
+            'class': 'mb-10 form-control',
+            'placeholder': 'Type Comment...',
+            'onblur' : 'this.placeholder',
+            'onfocus' : 'this.placeholder'
         }
     ))
 

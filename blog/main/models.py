@@ -38,7 +38,7 @@ class Post(models.Model):
         get_latest_by = 'time_stamp'
 
     def get_absolute_url(self):
-        return f"/post/{self.slug}"
+        return f"/{self.slug}"
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.title)
@@ -49,11 +49,11 @@ class Post(models.Model):
 
     @property
     def get_comment_count(self):
-        return self.comment_set.objects.all().count()
+        return self.comment_set.all().count()
     
     @property
     def get_view_count(self):
-        return self.view_set.objects.all().count()
+        return self.view_set.all().count()
 
 
 class Comment(models.Model):
