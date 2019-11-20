@@ -16,6 +16,10 @@ class Category(models.Model):
     
     def get_absolute_url(self):
         return f"/category/{self.slug}"
+    
+    @property
+    def get_post_count(self):
+        return self.post_set.all().count()
 
     class Meta:
         verbose_name_plural = 'Categories'

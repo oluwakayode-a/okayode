@@ -167,27 +167,11 @@
                     <div class="single_widget cat_widget">
                         <h4 class="text-uppercase pb-20">post categories</h4>
                         <ul>
+                            {% for category in categories %}
                             <li>
-                                <a href="#">Technology <span>37</span></a>
+                                <a href="{% url 'main:category' category.slug %}">{{ category.category }} <span>{{ category.get_post_count }}</span></a>
                             </li>
-                            <li>
-                                <a href="#">Lifestyle <span>37</span></a>
-                            </li>
-                            <li>
-                                <a href="#">Fashion <span>37</span></a>
-                            </li>
-                            <li>
-                                <a href="#">Art <span>37</span></a>
-                            </li>
-                            <li>
-                                <a href="#">Food <span>37</span></a>
-                            </li>
-                            <li>
-                                <a href="#">Architecture <span>37</span></a>
-                            </li>
-                            <li>
-                                <a href="#">Adventure <span>37</span></a>
-                            </li>
+                            {% endfor %}
                         </ul>
                     </div>
 
