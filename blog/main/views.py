@@ -119,6 +119,7 @@ def search(request):
     post_qs = Post.objects.all()
     # category_qs = Category.objects.all()
     query = request.GET.get('q')
+    recent_posts = Post.objects.all().order_by('-time_stamp')[:3]
 
     if query:
         post_qs = post_qs.filter(title__icontains=query)
@@ -126,7 +127,8 @@ def search(request):
     context = {
         'search_results' : post_qs,
         'query' : query,
-        'categories' : categories
+        'categories' : categories,
+        'recent_posts' : recent_posts
     }
     
-    return render(request, 'main/search_results.html', context)
+    return render(request, 'main/search.html', context)
