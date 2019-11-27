@@ -40,8 +40,7 @@
 					<div class="row d-flex justify-content-center">
 						<div class="menu-content pb-70 col-lg-8">
 							<div class="title text-center">
-								<h1 class="mb-10">Latest News from all categories</h1>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore  et dolore magna aliqua.</p>
+								<h1 class="mb-10">Check out the Latest Posts</h1>
 							</div>
 						</div>
 					</div>						
@@ -50,7 +49,7 @@
 						<div class="item single-cat">
 							<img src="{% static 'img/c1.jpg' %}" alt="">
 							<p class="date">{{ post.time_stamp | date:'d M Y' }}</p>
-							<h4><a href="#">{{ post.title }}</a></h4>
+							<h4><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h4>
 						</div>				
 						{% endfor %}			
 					</div>												
