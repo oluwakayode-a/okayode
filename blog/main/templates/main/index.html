@@ -17,8 +17,8 @@
 						</div>	
 						<div class="head-bottom-meta d-flex justify-content-between align-items-end col-lg-12">
 							<div class="col-lg-6 flex-row d-flex meta-left no-padding">
-								<p><span class="lnr lnr-heart"></span> 15 Likes</p>
-								<p><span class="lnr lnr-bubble"></span> 02 Comments</p>
+								<p><span class="lnr lnr-eye"></span> {{ latest_post.get_view_count }} views</p>
+								<p><span class="lnr lnr-bubble"></span> {{ latest_post.get_comment_count }} Comments</p>
 							</div>
 							<div class="col-lg-6 flex-row d-flex meta-right no-padding justify-content-end">
 								<div class="user-meta">
@@ -58,7 +58,7 @@
 			</section>
 			<!-- End category Area -->
 			
-			<!-- Start travel Area -->
+			<!-- Start Featured Area -->
 			<section class="travel-area section-gap" id="travel">
 				<div class="container">
 					<div class="row d-flex justify-content-center">
@@ -81,8 +81,8 @@
 							    <h4 class="mt-0"><a href="#">{{ post.title }}</a></h4>
 							    <p>inappropriate behavior Lorem ipsum dolor sit amet, consectetur.</p>
 								<div class="meta-bottom d-flex justify-content-between">
-									<p><span class="lnr lnr-heart"></span> 15 Likes</p>
-									<p><span class="lnr lnr-bubble"></span> 02 Comments</p>
+									<p><span class="lnr lnr-eye"></span> {{ post.get_view_count }} views</p>
+									<p><span class="lnr lnr-bubble"></span> {{ post.get_comment_count }} Comment{{ post.get_comment_count | pluralize }}</p>
 								</div>							 
 							  </div>
 							</div>					
@@ -93,7 +93,7 @@
 			</section>
 			<!-- End travel Area -->
 			
-			<!-- Start fashion Area -->
+			<!-- Start Quote Area -->
 			<section class="fashion-area section-gap" id="fashion">
 				<div class="container">
 					<div class="row d-flex justify-content-center">

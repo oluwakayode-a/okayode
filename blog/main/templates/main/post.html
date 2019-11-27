@@ -43,10 +43,10 @@
                             <div class="row">
                                 <div class="col-lg-4 single-b-wrap col-md-12">
                                     <i class="fa fa-eye" aria-hidden="true"></i>
-                                    4 views
+                                    {{ post.get_view_count }} view{{ post.get_view_count | pluralize }}
                                 </div>
                                 <div class="col-lg-4 single-b-wrap col-md-12">
-                                    <i class="fa fa-comment-o" aria-hidden="true"></i> 06 comments
+                                    <i class="fa fa-comment-o" aria-hidden="true"></i> {{ post.get_comment_count }} comment{{ post.get_comment_count | pluralize }}
                                 </div>
                                 <div class="col-lg-4 single-b-wrap col-md-12">
                                     <ul class="social-icons">
@@ -97,7 +97,7 @@
                                         <div class="single-comment justify-content-between d-flex">
                                             <div class="user justify-content-between d-flex">
                                                 <div class="thumb">
-                                                    <img src="img/asset/c1.jpg" alt="">
+                                                    <img src="{% static 'img/asset/c1.jpg' %}" alt="">
                                                 </div>
                                                 <div class="desc">
                                                     <h5><a href="#">{{ comment.name }}</a></h5>
@@ -136,7 +136,7 @@
 
                     </div>
                 </div>
-                <div class="col-lg-4 sidebar-area ">
+                <div class="col-lg-4 sidebar-area">
                     <div class="single_widget search_widget">
                         <div id="imaginary_container">
                             <form class="input-group stylish-input-group" action="{% url 'main:search' %}">
@@ -151,7 +151,7 @@
                     </div>
 
                     <div class="single_widget about_widget">
-                        <img src="img/asset/s-img.jpg" alt="">
+                        <img src="{% static 'img/asset/s-img.jpg' %}" alt="">
                         <h2 class="text-uppercase">Adele Gonzalez</h2>
                         <p>
                             MCSE boot camps have its supporters and

@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.contrib import messages
-from .models import Post, Category, Comment, ContactMessage, Quote
+from .models import Post, Category, Comment, ContactMessage, Quote, View
 from .forms import CommentForm, ContactForm
 from django.http import HttpResponseRedirect
 from django.db.models import Q
@@ -44,6 +44,9 @@ def post(request, slug):
     post = Post.objects.get(slug=slug)
     comments = Comment.objects.filter(post=post, reply=None).order_by('-id')
 
+    # new view
+    new_view = View.objects.create(post=post)
+    
     # comment section
     if request.method == 'POST':
         form = CommentForm(request.POST or None)

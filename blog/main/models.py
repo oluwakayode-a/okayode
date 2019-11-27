@@ -38,11 +38,10 @@ class Post(models.Model):
     featured = models.BooleanField(default=False)
 
     class Meta:
-        verbose_name_plural = 'Posts'
         get_latest_by = 'time_stamp'
 
     def get_absolute_url(self):
-        return f"/{self.slug}"
+        return f"/post/{self.slug}"
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.title)
@@ -99,4 +98,4 @@ class Quote(models.Model):
 
 
 class View(models.Model):
-    hit = models.IntegerField()
+    post = models.ForeignKey(Post, on_delete=models.DO_NOTHING)

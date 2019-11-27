@@ -47,7 +47,7 @@
                                     <img src="{% static 'img/asset/l1.jpg' %}" alt="">
                                 </div>
                                 <div class="detail">
-                                    <a href="#"><h4 class="pb-20">{{ post.title }}</h4></a>
+                                    <a href="{{ post.get_absolute_url }}"><h4 class="pb-20">{{ post.title }}</h4></a>
                                     <p>
                                         inappropriate behavior Lorem ipsum dolor sit amet, consecteturinapprop riate behavior Lorem ipsum dolor sit amet, consectetur.
                                     </p>
@@ -112,33 +112,7 @@
                                 </div>                     
                                 {% endfor %}                                                                   
                             </div>
-                        </div>  
-                        <div class="single_widget cat_widget">
-                            <h4 class="text-uppercase pb-20">post archive</h4>
-                            <ul>
-                                <li>
-                                    <a href="#">Dec'17 <span>37</span></a>
-                                </li>
-                                <li>
-                                    <a href="#">Nov'17 <span>37</span></a>
-                                </li>
-                                <li>
-                                    <a href="#">Oct'17 <span>37</span></a>
-                                </li>
-                                <li>
-                                    <a href="#">Sept'17 <span>37</span></a>
-                                </li>
-                                <li>
-                                    <a href="#">Aug'17 <span>37</span></a>
-                                </li>
-                                <li>
-                                    <a href="#">Jul'17 <span>37</span></a>
-                                </li>
-                                <li>
-                                    <a href="#">Jun'17 <span>37</span></a>
-                                </li>                                
-                            </ul>
-                        </div> 
+                        </div>
                         <div class="single_widget tag_widget">
                             <h4 class="text-uppercase pb-20">Tag Clouds</h4>
                             <ul>
