@@ -1,6 +1,11 @@
 {% extends 'main/base.html' %}
 {% load static %}
 
+
+{% block custom_styles %}
+<link rel="stylesheet" href="{% static 'css/post.css' %}">
+{% endblock %}
+
 {% block content %}
 
 <!-- Start post Area -->
@@ -11,7 +16,7 @@
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <div class="single-page-post">
-                        <img class="img-fluid" src="{% static 'img/single.jpg' %}" alt="">
+                        <img class="img-fluid" src="{{ post.image.url }}" alt="">
                         <div class="top-wrapper ">
                             <div class="row d-flex justify-content-between">
                                 <h2 class="col-lg-8 col-md-12 text-uppercase">
@@ -19,8 +24,12 @@
                                 </h2>
                                 <div class="col-lg-4 col-md-12 right-side d-flex justify-content-end">
                                     <div class="desc">
-                                        <h2>Mark wiens</h2>
-                                        <h3>12 Dec ,2017 11:21 am</h3>
+                                        {% if post.author %}
+                                        <h2>{{ post.author }}</h2>
+                                        {% else %}
+                                        <h2>Oluwakayode A.</h2>
+                                        {% endif %}
+                                        <h3>{{ post.time_stamp }}</h3>
                                     </div>
                                     <div class="user-img">
                                         <img src="img/user.jpg" alt="">
@@ -63,24 +72,28 @@
                         <section class="nav-area pt-50 pb-100">
                             <div class="container">
                                 <div class="row justify-content-between">
+                                    {% if post.get_previous_by_time_stamp %}
                                     <div class="col-sm-6 nav-left justify-content-start d-flex">
                                         <div class="thumb">
                                             <img src="img/prev.jpg" alt="">
                                         </div>
                                         <div class="details">
                                             <p>Prev Post</p>
-                                            <h4 class="text-uppercase"><a href="#">A Discount Toner</a></h4>
+                                    <h4 class="text-uppercase"><a href="{{ post.get_previous_by_time_stamp.get_absolute_url }}">{{ post.get_previous_by_time_stamp.title }}</a></h4>
                                         </div>
                                     </div>
+                                    {% endif %}
+                                    {% if post.get_next_by_time_stamp %}
                                     <div class="col-sm-6 nav-right justify-content-end d-flex">
                                         <div class="details">
-                                            <p>Prev Post</p>
-                                            <h4 class="text-uppercase"><a href="#">A Discount Toner</a></h4>
+                                            <p>Next Post</p>
+                                            <h4 class="text-uppercase"><a href="{{ post.get_next_by_time_stamp.get_absolute_url }}">{{ post.get_next_by_time_stamp.title }}</a></h4>
                                         </div>
                                         <div class="thumb">
                                             <img src="img/next.jpg" alt="">
                                         </div>
                                     </div>
+                                    {% endif %}
                                 </div>
                             </div>
                         </section>
@@ -152,7 +165,7 @@
 
                     <div class="single_widget about_widget">
                         <img src="{% static 'img/asset/s-img.jpg' %}" alt="">
-                        <h2 class="text-uppercase">Adele Gonzalez</h2>
+                        <h2 class="text-uppercase">Kayode Oladipo</h2>
                         <p>
                             MCSE boot camps have its supporters and
                             its detractors. Some people do not understand why you should have to spend money

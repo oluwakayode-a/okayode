@@ -26,6 +26,7 @@
         <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
         <link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}">
         <link rel="stylesheet" href="{% static 'css/main.css' %}">
+        {% block custom_styles %}{% endblock %}
     </head>
     <body>
 
@@ -43,7 +44,7 @@
                       <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarSupportedContent">
                         <ul class="navbar-nav">
                             <li><a href="/#news">latest posts</a></li>
-                            <li><a href="/#travel">featured</a></li>
+                            <li><a href="/#featured">featured</a></li>
                             <li><a href="/#team">about</a></li>
                             <li><a href="#">contact</a></li>
                             <li><a href="/admin" target="_blank">admin</a></li>
@@ -62,12 +63,12 @@
                 <div class="row">
                     <div class="col-lg-3  col-md-12">
                         <div class="single-footer-widget">
-                            <h6>Top Products</h6>
+                            <h6>Quick Links</h6>
                             <ul class="footer-nav">
-                                <li><a href="#">Managed Website</a></li>
-                                <li><a href="#">Manage Reputation</a></li>
-                                <li><a href="#">Power Tools</a></li>
-                                <li><a href="#">Marketing Service</a></li>
+                                <li><a href="#">Categories</a></li>
+                                <li><a href="#">About</a></li>
+                                <li><a href="/#featured">Featured Posts</a></li>
+                                <li><a href="#">Contact</a></li>
                             </ul>
                         </div>
                     </div>
@@ -103,8 +104,8 @@
                     <div class="col-lg-4 col-sm-12 footer-social">
                         <a href="#"><i class="fa fa-facebook"></i></a>
                         <a href="#"><i class="fa fa-twitter"></i></a>
-                        <a href="#"><i class="fa fa-dribbble"></i></a>
-                        <a href="#"><i class="fa fa-behance"></i></a>
+                        <a href="#"><i class="fa fa-linkedin"></i></a>
+                        <a href="#"><i class="fa fa-instagram"></i></a>
                     </div>
                 </div>
             </div>

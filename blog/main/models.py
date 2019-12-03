@@ -3,6 +3,7 @@ from django.db import models
 from django.utils.text import slugify
 from ckeditor.fields import RichTextField
 from taggit.managers import TaggableManager
+from PIL import Image
 
 # Create your models here.
 
@@ -35,7 +36,9 @@ class Post(models.Model):
     time_stamp = models.DateTimeField(auto_now_add=True)
     tags = TaggableManager(blank=True)
     image = models.ImageField(upload_to='images/', blank=True, null=True)
+    # thumbnail = models.ImageField(upload_to='images/', blank=True, null=True)
     featured = models.BooleanField(default=False)
+
 
     class Meta:
         get_latest_by = 'time_stamp'

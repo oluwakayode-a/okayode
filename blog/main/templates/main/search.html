@@ -18,8 +18,8 @@
                                     </span>
                                 </form>
                             </div>
-                            {% if post_qs %}
-                            <p class="mt-20 text-center text-white">{{ post_qs.count }} result{{ post_qs | pluralize }} found for “{{ query }}”</p>
+                            {% if search_results %}
+                            <p class="mt-20 text-center text-white">{{ search_results.count }} result{{ search_results | pluralize }} found for “{{ query }}”</p>
                             {% else %}
                             <p class="mt-20 text-center text-white">no results found for “{{ query }}”</p>
                             {% endif %}
