@@ -73,26 +73,30 @@
                             <div class="container">
                                 <div class="row justify-content-between">
                                     {% if post.get_previous_by_time_stamp %}
-                                    <div class="col-sm-6 nav-left justify-content-start d-flex">
-                                        <div class="thumb">
-                                            <img src="img/prev.jpg" alt="">
+                                    <a href="{{ post.get_previous_by_time_stamp.get_absolute_url }}">
+                                        <div class="col-sm-6 nav-left justify-content-start d-flex">
+                                            <div class="thumb">
+                                                <i class="fa fa-arrow-left"></i>
+                                            </div>
+                                            <div class="details">
+                                                <p>Prev Post</p>
+                                                <h4 class="text-uppercase">{{ post.get_previous_by_time_stamp.title }}</h4>
+                                            </div>
                                         </div>
-                                        <div class="details">
-                                            <p>Prev Post</p>
-                                    <h4 class="text-uppercase"><a href="{{ post.get_previous_by_time_stamp.get_absolute_url }}">{{ post.get_previous_by_time_stamp.title }}</a></h4>
-                                        </div>
-                                    </div>
+                                    </a>
                                     {% endif %}
                                     {% if post.get_next_by_time_stamp %}
-                                    <div class="col-sm-6 nav-right justify-content-end d-flex">
-                                        <div class="details">
-                                            <p>Next Post</p>
-                                            <h4 class="text-uppercase"><a href="{{ post.get_next_by_time_stamp.get_absolute_url }}">{{ post.get_next_by_time_stamp.title }}</a></h4>
+                                    <a href="{{ post.get_next_by_time_stamp.get_absolute_url }}">
+                                        <div class="col-sm-6 nav-right justify-content-end d-flex">
+                                            <div class="details">
+                                                <p>Next Post</p>
+                                                <h4 class="text-uppercase">{{ post.get_next_by_time_stamp.title }}</h4>
+                                            </div>
+                                            <div class="thumb">
+                                                <i class="fa fa-arrow-right"></i>
+                                            </div>
                                         </div>
-                                        <div class="thumb">
-                                            <img src="img/next.jpg" alt="">
-                                        </div>
-                                    </div>
+                                    </a>
                                     {% endif %}
                                 </div>
                             </div>
