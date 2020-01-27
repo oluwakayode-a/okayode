@@ -55,7 +55,7 @@ class Post(models.Model):
     def save(self, *args, **kwargs):
         self.slug = slugify(self.title)
         if not self.author:
-            self.author = User.username
+            self.author = "oluwakayode"
 
         super(Post, self).save(*args, **kwargs)  # Call the real save() method
 
