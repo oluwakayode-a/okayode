@@ -1,1 +1,1 @@
-web: gunicorn okayode.wsgi --log-file -
+web: gunicorn blog.wsgi --log-file -
