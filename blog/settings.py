@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'l(te=ccy3nmop*$id(+3*e%#1&@sxog$ng29y_**z+b6vgk00i'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['okayode-blog.herokuapp.com']
 
